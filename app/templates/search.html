@@ -1,0 +1,170 @@
+<!-- ===================================================
+search.html
+=================================================== -->
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-4">
+
+
+    <div class="card shadow">
+
+
+        <div class="card-header bg-dark text-white">
+
+            <h4 class="mb-0">
+                🔍 Search Users
+            </h4>
+
+        </div>
+
+
+
+        <div class="card-body">
+
+
+            <!-- Search Box -->
+
+            <form method="GET"
+                  action="{{ url_for('main.users') }}">
+
+
+                <div class="input-group mb-4">
+
+
+                    <input 
+                    type="text"
+                    name="q"
+                    class="form-control"
+                    placeholder="Search username..."
+                    value="{{ request.args.get('q','') }}"
+                    >
+
+
+
+                    <button 
+                    class="btn btn-dark">
+
+                        Search
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+
+
+
+            <!-- Users List -->
+
+
+            {% if users %}
+
+
+                <div class="row">
+
+
+                {% for user in users %}
+
+
+                    <div class="col-md-4 mb-3">
+
+
+                        <div class="card h-100 shadow-sm">
+
+
+                            <div class="card-body text-center">
+
+
+
+                                <img 
+                                src="{{ url_for(
+                                    'static',
+                                    filename='uploads/profile/' + user.profile_picture
+                                ) }}"
+                                width="90"
+                                height="90"
+                                class="rounded-circle mb-3"
+                                >
+
+
+
+
+                                <h5>
+
+                                    {{ user.username }}
+
+                                </h5>
+
+
+
+
+                                <p class="text-muted">
+
+                                    {{ user.about }}
+
+                                </p>
+
+
+
+                                <a href="{{ url_for(
+                                    'chat.private_chat',
+                                    user_id=user.id
+                                ) }}"
+                                class="btn btn-primary">
+
+                                    Message
+
+                                </a>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+                </div>
+
+
+
+            {% else %}
+
+
+                <div class="alert alert-warning">
+
+                    No users found.
+
+                </div>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

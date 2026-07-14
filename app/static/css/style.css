@@ -1,0 +1,334 @@
+/* ===================================================
+   FlaskChatPro Main CSS
+=================================================== */
+
+
+/* ----------------------------
+   Global
+---------------------------- */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f5f6fa;
+
+}
+
+
+
+/* ----------------------------
+   Navbar
+---------------------------- */
+
+.navbar-brand {
+
+    font-weight: bold;
+
+    font-size: 22px;
+
+}
+
+
+
+/* ----------------------------
+   Cards
+---------------------------- */
+
+.card {
+
+    border-radius: 12px;
+
+}
+
+
+
+.card-header {
+
+    border-radius: 12px 12px 0 0 !important;
+
+}
+
+
+
+/* ----------------------------
+   Profile Image
+---------------------------- */
+
+.rounded-circle {
+
+    object-fit: cover;
+
+}
+
+
+
+/* ----------------------------
+   Chat Box
+---------------------------- */
+
+#chat-box,
+#private-chat-box,
+#ai-chat-box {
+
+    background-color: white;
+
+}
+
+
+
+/* ----------------------------
+   Chat Messages
+---------------------------- */
+
+.message {
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+}
+
+
+
+.message-user {
+
+    background-color: #0d6efd;
+
+    color: white;
+
+    text-align: right;
+
+}
+
+
+
+.message-other {
+
+    background-color: #e9ecef;
+
+    color: black;
+
+}
+
+
+
+/* ----------------------------
+   Buttons
+---------------------------- */
+
+.btn {
+
+    border-radius: 8px;
+
+}
+
+
+
+/* ----------------------------
+   Forms
+---------------------------- */
+
+.form-control {
+
+    border-radius: 8px;
+
+}
+
+
+
+/* ----------------------------
+   Upload Preview
+---------------------------- */
+
+.preview-image {
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+
+/* ----------------------------
+   Mobile Responsive
+---------------------------- */
+
+@media(max-width:768px){
+
+
+    .container {
+
+        padding-left:15px;
+
+        padding-right:15px;
+
+    }
+
+
+
+    h2 {
+
+        font-size:22px;
+
+    }
+
+
+
+    .card-body {
+
+        padding:15px;
+
+    }
+
+
+
+    #chat-box,
+    #private-chat-box,
+    #ai-chat-box {
+
+        height:300px !important;
+
+    }
+
+
+}
+.chat-box{
+
+height:500px;
+
+overflow-y:auto;
+
+background:#ece5dd;
+
+padding:20px;
+
+}
+
+.my-message{
+
+background:#DCF8C6;
+
+padding:12px;
+
+border-radius:15px 15px 0 15px;
+
+max-width:70%;
+
+box-shadow:0 1px 3px rgba(0,0,0,.2);
+
+word-wrap:break-word;
+
+}
+
+.other-message{
+
+background:white;
+
+padding:12px;
+
+border-radius:15px 15px 15px 0;
+
+max-width:70%;
+
+box-shadow:0 1px 3px rgba(0,0,0,.2);
+
+word-wrap:break-word;
+
+}
+
+.my-message img,
+.other-message img{
+
+max-width:250px;
+
+border-radius:10px;
+
+margin-top:8px;
+
+}
+
+.chat-box::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+.chat-box::-webkit-scrollbar-thumb{
+
+background:#bbb;
+
+border-radius:10px;
+
+}
+
+
+.image-border{
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.image-border::before{
+    content: "";
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 320deg,
+        #00e5ff 340deg,
+         
+        #00e5ff 360deg
+    );
+    animation: rotate 2s linear infinite;
+}
+
+.image-border::after{
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: white;   /* change to your page background */
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.image-border img{
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    z-index: 2;
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* Notification Page */
+
+@media (max-width: 991px) {
+
+    .card-header .btn {
+
+        width: 100%;
+
+    }
+
+    .card-header .d-grid {
+
+        width: 100%;
+
+    }
+
+}

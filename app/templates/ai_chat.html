@@ -1,0 +1,82 @@
+<!-- ===================================================
+ai_chat.html
+=================================================== -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">
+                🤖 AI Chat Assistant
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+            <!-- Chat History -->
+
+            <div
+                id="ai-chat-box"
+                class="border rounded p-3 mb-3"
+                style="height:400px; overflow-y:auto;"
+            >
+
+                {% if history %}
+
+                    {% for chat in history %}
+
+                        <div class="mb-3">
+
+                            <div class="alert alert-primary">
+                                <strong>You:</strong><br>
+                                {{ chat.question }}
+                            </div>
+
+                            <div class="alert alert-secondary">
+                                <strong>AI:</strong><br>
+                                {{ chat.answer }}
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="text-muted text-center">
+                        No conversation yet.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+            <!-- AI Form -->
+
+             <form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="input-group">
+
+        {{ form.question(class="form-control",
+        placeholder="Ask Gemini AI...") }}
+
+        {{ form.submit(class="btn btn-info") }}
+
+    </div>
+
+</form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

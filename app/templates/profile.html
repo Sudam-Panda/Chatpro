@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-4">
+            My Profile
+        </h2>
+
+        <div class="text-center mb-4">
+
+            <img
+                src="{{ url_for('static', filename='uploads/profile/' + (user.profile_picture or 'default.png')) }}"
+                class="rounded-circle"
+                width="150"
+                height="150"
+                alt="Profile Picture"
+            >
+
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.about.label(class="form-label") }}
+                {{ form.about(class="form-control") }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.profile_picture.label(class="form-label") }}
+                {{ form.profile_picture(class="form-control") }}
+            </div>
+
+            <div class="text-center">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

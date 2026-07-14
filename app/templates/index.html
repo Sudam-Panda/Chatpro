@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | FlaskChatPro
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row align-items-center min-vh-75">
+
+        <div class="col-lg-6">
+
+             <h1 class="display-4 fw-bold ">
+          Real-Time Chat Application
+       </h1>
+              <div class="col-lg-6 text-center mt-2 mt-lg-0">
+
+           <div class="image-border">
+    <img
+        src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F648oseb4w8z1yuyxub0z.png"
+        class="img-fluid rounded-4"
+        width="350"
+        alt="Chat Illustration">
+</div>
+
+        </div>
+ 
+            <ul class="list-group list-group-flush mt-3">
+
+                <li class="list-group-item">
+                    ✅ User Authentication
+                </li>
+
+                <li class="list-group-item">
+                    ✅ Real-Time Group Chat
+                </li>
+
+                <li class="list-group-item">
+                    ✅ Private Chat
+                </li>
+
+                <li class="list-group-item">
+                    ✅ Image & File Sharing
+                </li>
+
+                <li class="list-group-item">
+                    ✅ AI Chat Assistant
+                </li>
+
+                
+
+            </ul>
+
+            <div class="mt-4">
+
+                {% if current_user.is_authenticated %}
+
+                    <a href="{{ url_for('main.dashboard') }}"
+                       class="btn btn-primary btn-lg">
+                        Go to Dashboard
+                    </a>
+
+                {% else %}
+
+                    <a href="{{ url_for('auth.register') }}"
+                       class="btn btn-success btn-lg">
+                        Create Account
+                    </a>
+
+                    <a href="{{ url_for('auth.login') }}"
+                       class="btn btn-outline-primary btn-lg ms-2">
+                        Login
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+       
+
+    </div>
+
+</div>
+
+{% endblock %}
